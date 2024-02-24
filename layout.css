@@ -1,3 +1,143 @@
 *{
-  margin:0;padding:0
+  max-width: 768px;
+  margin:0;
+  padding:0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------------Fonts---------------- */
+/* Fonts colors */
+.font-default-black{
+  color: #333;
+}
+
+.font-default-normal{
+  color: #666;
+}
+
+.font-default-unimportant{
+  color: #999;
+}
+
+.font-default-offwhite{
+  color: #fff
+}
+
+/* Fonts Size */
+.extra-large-heading{
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.large-heading{
+  font-size: 1.375rem;
+  font-weight: bold;
+}
+
+.small-heading{
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.running-text{
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.small-text{
+  font-size: .75rem;
+  font-weight: 400;
+}
+
+/* ---------------Spacing---------------- */
+/* bottom */
+.margin-bottom-xl{
+  margin-bottom: 6rem;
+}
+
+.margin-bottom-lg{
+  margin-bottom: 4rem;
+}
+
+.margin-bottom-md{
+  margin-bottom: 2.5rem;
+}
+
+.margin-bottom-sm{
+  margin-bottom: 1.25rem;
+}
+
+.margin-bottom-xs{
+  margin-bottom: .625rem;
+}
+
+/* top */
+.margin-top-xl{
+  margin-top: 6rem;
+}
+
+.margin-top-lg{
+  margin-top: 4rem;
+}
+
+.margin-top-md{
+  margin-top: 2.5rem;
+}
+
+.margin-top-sm{
+  margin-top: 1.25rem;
+}
+
+.margin-top-xs{
+  margin-top: .625rem;
+}
+
+/* left */
+.margin-left-xl{
+  margin-left: 6rem;
+}
+
+.margin-left-lg{
+  margin-left: 4rem;
+}
+
+.margin-left-md{
+  margin-left: 2.5rem;
+}
+
+.margin-left-sm{
+  margin-left: 1.25rem;
+}
+
+.margin-left-xs{
+  margin-left: .625rem;
+}
+
+/* right */
+.margin-right-xl{
+  margin-right: 6rem;
+}
+
+.margin-right-lg{
+  margin-right: 4rem;
+}
+
+.margin-right-md{
+  margin-right: 2.5rem;
+}
+
+.margin-right-sm{
+  margin-right: 1.25rem;
+}
+
+.margin-right-xs{
+  margin-right: .625rem;
+}
+
+/* ---------------Containers---------------- */
+
+.container{
+   max-width: 90%;
+   margin: auto;
 }
