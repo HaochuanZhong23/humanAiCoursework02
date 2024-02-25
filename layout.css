@@ -204,3 +204,23 @@ body{
   display: flex;
   justify-content: flex-end;
 }
+
+/* --------------- Navbar ---------------*/
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3a5f41; /* Adjust the color to match your screenshot */
+  padding: 15px 20px; /* Adjust the padding as needed */
+  color: white;
+}
+
+.navbar-icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 24px; /* Adjust size as needed */
+  margin: 0 15px; /* Space out icons */
+}
