@@ -14,6 +14,91 @@
     <script src="/script.js"></script>
 </head>
 <body>
+    <div class="container scanning_content">
+    <h2 class="font-default-offwhite large-heading margin-top-xl">HAT OR NOT???</h2>
     
-</body>
+    <video class="video margin-top-xl" id="video" autoplay playsinline></video>
+    <button class="changeCamera" onclick="switchCamera()">Switch Camera</button>
+    <button class="startPredict font-default-black small-heading" onclick="startPredicting()">Start diagnosing</button>
+    <p class="font-default-offwhite small-heading margin-top-md" id="result"></p>
+    
+    <script>
+        ////////////////////////////////
+        ////////    SPECIFY PARAMETERS
+        ////////////////////////////////
+        const PROCESSING_SPEED = 2000;
+        const CLASSES = ["no", "hat"];
+        const MODEL_FOLDER = 'model\model.json';
+        const mode = 'environment' // back camera
+        const camera_mode = 'user' // front camera
+    
+        let currentStream;
+    
+        ////////////////////////////////
+        ////////    USE THIS FUNCTION FOR INTERACTIONS
+        ////////////////////////////////
+        function interaction(predictedClass, classScores) {
+            console.log(classScores);
+            document.getElementById("result").innerHTML = `Prediction: ${predictedClass}, Confidence: ${classScores[0]}`;
+        }
+    
+        ////////////////////////////////
+        ////////    VIDEO CAPTURE AND PREDICTION LOGIC
+        ////////////////////////////////
+        async function startVideo(facingMode = 'user') {
+            // Stop any existing video tracks to free up the camera
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => {
+                    track.stop();
+                });
+            }
+    
+            try {
+                // Request access to the camera with the specified facing mode
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode }
+                });
+    
+                const videoElement = document.getElementById('video');
+                videoElement.srcObject = stream;
+                currentStream = stream;
+    
+                // Return a promise that resolves when the video is ready to play
+                return new Promise(resolve => {
+                    videoElement.onloadedmetadata = () => {
+                        resolve(videoElement);
+                    };
+                });
+            } catch (err) {
+                console.error('Error accessing the camera:', err);
+            }
+        }
+    
+    
+        async function startPredicting() {
+            const model = await tf.loadGraphModel(MODEL_FOLDER);
+            setInterval(async () => {
+                const example = tf.browser.fromPixels(video).cast('float32');
+                const prediction = await model.predict(example.expandDims());
+                const classScores = await prediction.data();
+                const maxScoreId = classScores.indexOf(Math.max(...classScores));
+                const predictedClass = CLASSES[maxScoreId];
+    
+                interaction(predictedClass, classScores);
+            }, PROCESSING_SPEED);
+        }
+    
+        function switchCamera() {
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+             }
+           startVideo('user');
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            startVideo(camera_mode);
+        });
+    </script>
+    </div>
+    </body>
 </html>
