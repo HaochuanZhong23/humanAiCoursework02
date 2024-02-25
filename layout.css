@@ -146,3 +146,61 @@ body{
    max-width: 90%;
    margin: auto;
 }
+
+/* ---------------Alignment----------------- */
+
+ /* Aligning text to the left */
+ .text-left {
+  text-align: left;
+}
+
+/* Aligning text to the right */
+.text-right {
+  text-align: right;
+}
+
+/* Aligning text to the center */
+.text-center {
+  text-align: center;
+}
+
+/* Aligning content to the top of a container */
+.align-top {
+  vertical-align: top;
+}
+
+/* Aligning content at the bottom of a container */
+.align-bottom {
+  vertical-align: bottom;
+}
+
+/* Full width container to demonstrate flex alignment */
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* This separates items to each end */
+  align-items: center; /* This centers items vertically */
+}
+
+/* Helper class to use flexbox for aligning items to the left */
+.flex-left {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Helper class to use flexbox for aligning items to the right */
+.flex-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Helper class to use flexbox for aligning items to the top */
+.flex-top {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Helper class to use flexbox for aligning items to the bottom */
+.flex-bottom {
+  display: flex;
+  justify-content: flex-end;
+}
