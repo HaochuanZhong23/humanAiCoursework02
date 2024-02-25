@@ -32,7 +32,7 @@
             ////////////////////////////////
             const PROCESSING_SPEED = 2000;
             const CLASSES = ["no", "hat"];
-            const MODEL_FOLDER = 'model/model.json';
+            const MODEL_FOLDER = '/model/model.json';
             const mode = 'environment' // back camera
             const camera_mode = 'user' // front camera
 
@@ -92,7 +92,7 @@
 
                     if (predictedClass === "no") {
                         setTimeout(() => {
-                            window.location.href = "/pages/outcome/outcome.html";
+                            window.location.href = "pages/outcome/outcome.html";
                         }, 2000);
                     }
                 }, PROCESSING_SPEED);
