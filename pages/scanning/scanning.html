@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/pages/chat/chat.css" type="text/css">
     <!-- Javascript -->
     <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 </head>
 <body>
     <div class="container scanning_content">
@@ -28,7 +29,7 @@
         ////////////////////////////////
         const PROCESSING_SPEED = 2000;
         const CLASSES = ["no", "hat"];
-        const MODEL_FOLDER = 'model\model.json';
+        const MODEL_FOLDER = '/model/model.json';
         const mode = 'environment' // back camera
         const camera_mode = 'user' // front camera
     
