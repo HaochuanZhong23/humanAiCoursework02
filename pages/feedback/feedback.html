@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
     <!-- Styles -->
     <link rel="stylesheet" href="/layout.css" type="text/css">
-    <link rel="stylesheet" href="/pages/scanning/scanning.css" type="text/css">
-    <link rel="stylesheet" href="/pages/outcome/outcome.css" type="text/css">
     <link rel="stylesheet" href="/pages/feedback/feedback.css" type="text/css">
-    <link rel="stylesheet" href="/pages/chat/chat.css" type="text/css">
     <!-- Javascript -->
     <script src="/script.js"></script>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="feedback-wrapper margin-top-xl">
+            <h2 class="large-heading font-default-offwhite">Do you think the result is accurate?</h2>
+            <img class="feedbackImage margin-top-md" src="/assets/outcome/Hemileia Vastatrix.png">
+            <h3 id="disease" class="small-heading font-default-offwhite margin-top-sm"></h3>
+            <p id="description" class="margin-top-sm running-text text-center font-default-offwhite"></p>
+
+            <div class="button-wrapper margin-top-xl">
+                <button class="btn-offwhite margin-top-sm">Not the right disease</button>
+                <button class="btn-offwhite margin-top-sm">Not te right description</button>
+                <button class="btn-offwhite margin-top-sm">Others</button>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Retrieve predictedClass from local storage
+                const predictedClass = localStorage.getItem('predictedClass');
+
+                // Update the text in the h2 element
+                const h2Element = document.getElementById('disease');
+                if (h2Element && predictedClass) {
+                    h2Element.textContent = predictedClass;
+                } else {
+                    console.error('Failed to update h2 text: predictedClass not found in local storage or h2 element not found.');
+                }
+
+                // Retrieve description from local storage
+                const description = localStorage.getItem('description');
+
+                // Update the text in the p element
+                const pElement = document.getElementById('description');
+                if (pElement && description) {
+                    pElement.textContent = description;
+                } else {
+                    console.error('Failed to update h2 text: predictedClass not found in local storage or h2 element not found.');
+                }
+            });
+        </script>
 </body>
+
 </html>

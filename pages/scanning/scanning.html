@@ -8,9 +8,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/layout.css" type="text/css">
     <link rel="stylesheet" href="/pages/scanning/scanning.css" type="text/css">
-    <link rel="stylesheet" href="/pages/outcome/outcome.css" type="text/css">
-    <link rel="stylesheet" href="/pages/feedback/feedback.css" type="text/css">
-    <link rel="stylesheet" href="/pages/chat/chat.css" type="text/css">
     <!-- Javascript -->
     <script src="/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
@@ -24,14 +21,14 @@
         <button class="changeCamera" onclick="switchCamera()">Switch Camera</button>
         <button class="startPredict font-default-black small-heading" onclick="startPredicting()">Start
             diagnosing</button>
-        <p class="font-default-offwhite small-heading margin-top-md" id="result"></p>
+        <p class="font-default-offwhite small-heading margin-top-md text-center" id="result"></p>
 
         <script>
             ////////////////////////////////
             ////////    SPECIFY PARAMETERS
             ////////////////////////////////
             const PROCESSING_SPEED = 2000;
-            const CLASSES = ["no", "hat"];
+            const CLASSES =  [  "Background_without_leaves" ,  "coffee Hemileia vastatrix" ,  "coffee Sooty mould" ,  "Colletotrichum kahawae" ,  "fungus Verticillium lecanii" ,  "Normal coffee bean" ,  ] ;
             const MODEL_FOLDER = '/model/model.json';
             const mode = 'environment' // back camera
             const camera_mode = 'user' // front camera
@@ -44,6 +41,8 @@
             function interaction(predictedClass, classScores) {
                 console.log(classScores);
                 document.getElementById("result").innerHTML = `Prediction: ${predictedClass}, Confidence: ${classScores[0]}`;
+
+                localStorage.setItem('predictedClass', predictedClass);
             }
 
             ////////////////////////////////
@@ -90,10 +89,11 @@
 
                     interaction(predictedClass, classScores);
 
-                    if (predictedClass === "no") {
+                    if (predictedClass != null) {
                         setTimeout(() => {
                             window.location.href = "/pages/outcome/outcome.html";
                         }, 2000);
+                        localStorage.setItem('description', "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci error architecto perspiciatis necessitatibus repudiandae asperiores accusantium ipsa rem ipsum corrupti non libero vero, facere molestias sint sequi. Dolores, suscipit accusamus.");
                     }
                 }, PROCESSING_SPEED);
             }
