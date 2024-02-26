@@ -78,6 +78,14 @@ body{
 }
 
 /* top */
+.margin-top-xxxl{
+  margin-top: 10rem;
+}
+
+.margin-top-xxl{
+  margin-top: 8rem;
+}
+
 .margin-top-xl{
   margin-top: 6rem;
 }
@@ -228,4 +236,74 @@ body{
 /* --------------- Line Spacing ---------------*/
 .line-height-reduced {
   line-height: 0.5;
+}
+
+/* --------------- Button Spacing --------------*/
+.vform {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+}
+.vformbutton {
+  width: 100px;
+  margin: 0 auto;
+}
+
+/* -------------- Common Button Styling ---------*/
+
+.btn-offwhite{
+  width: 100%;
+  height: 3.125rem;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: .625rem;
+  cursor: pointer;
+  transition: all .15s;
+  color: white;
+  font-size: 1rem;
+}
+
+.btn-offwhite:hover{
+  background-color: #666;
+  transform: scale(1.01);
+  border: none;
+  transition: all .15s;
+  color: #fff;
+}
+
+.btn-white{
+  width: 100%;
+  height: 3.125rem;
+  border-radius: .625rem;
+  cursor: pointer;
+  transition: all .15s;
+  color: black;
+  font-size: 1rem;
+}
+
+.btn-white:hover{
+  background-color: rgb(125, 206, 133);
+  transform: scale(1.01);
+  border: none;
+  transition: all .15s;
+  color: #fff;
+}
+
+.btn-link{
+  transition: all .15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-link:hover{
+  text-decoration: underline;
+  color: green;
+  transition: all .15s;
+}
+
+.button-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
